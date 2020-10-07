@@ -1768,8 +1768,7 @@ class BaseEventLoop(events.AbstractEventLoop):
                 # Second protection layer for unexpected errors
                 # in the default implementation, as well as for subclassed
                 # event loops with overloaded "default_exception_handler".
-                logger.error('Exception in default exception handler',
-                             exc_info=True)
+                pass
         else:
             try:
                 self._exception_handler(self, context)
@@ -1789,10 +1788,7 @@ class BaseEventLoop(events.AbstractEventLoop):
                 except BaseException:
                     # Guard 'default_exception_handler' in case it is
                     # overloaded.
-                    logger.error('Exception in default exception handler '
-                                 'while handling an unexpected error '
-                                 'in custom exception handler',
-                                 exc_info=True)
+                    pass
 
     def _add_callback(self, handle):
         """Add a Handle to _scheduled (TimerHandle) or _ready."""
